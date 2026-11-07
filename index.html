@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Special Surprise ❤️</title>
+
+<style>
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* PAGE 1 */
+
+.page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-page {
+    background: linear-gradient(
+        135deg,
+        #ff9aaf,
+        #c9a0ff,
+        #ffc5d5
+    );
+    color: white;
+}
+
+.welcome-content {
+    z-index: 2;
+    width: 90%;
+    max-width: 750px;
+    animation: appear 2s ease;
+}
+
+.small-text {
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: clamp(35px, 7vw, 65px);
+    margin-bottom: 25px;
+    text-shadow: 2px 3px 10px #a64d79;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.decoration {
+    font-size: 35px;
+    margin: 20px;
+    animation: heartbeat 2s infinite;
+}
+
+/* NEXT BUTTON */
+
+.next-button {
+    padding: 15px 45px;
+    background: white;
+    color: #d63384;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.next-button:hover {
+    transform: scale(1.15);
+    background: #ffdfeb;
+}
+
+/* FLOATING HEARTS */
+
+.hearts span {
+    position: absolute;
+    bottom: -50px;
+    font-size: 30px;
+    animation: floatHeart 8s linear infinite;
+}
+
+.hearts span:nth-child(1) {
+    left: 10%;
+}
+
+.hearts span:nth-child(2) {
+    left: 25%;
+    animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+    left: 75%;
+    animation-delay: 3s;
+}
+
+.hearts span:nth-child(6) {
+    left: 85%;
+    animation-delay: 5s;
+}
+
+.hearts span:nth-child(7) {
+    left: 50%;
+    animation-delay: 6s;
+}
+
+/* PAGE 2 */
+
+.video-page {
+    background: black;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+/* BACKGROUND VIDEO */
+
+.background-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* OVERLAY */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1;
+}
+
+/* VIDEO CONTENT */
+
+.video-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 800px;
+    animation: zoomIn 2s ease;
+}
+
+.video-small-text {
+    letter-spacing: 6px;
+    margin-bottom: 25px;
+}
+
+.video-title {
+    font-size: clamp(35px, 7vw, 65px);
+    color: #fff0f5;
+    text-shadow: 2px 2px 15px #ff69b4;
+    animation: heartbeat 3s infinite;
+}
+
+.video-description {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+.sparkle {
+    font-size: 35px;
+    margin: 25px;
+}
+
+/* BUTTONS */
+
+button {
+    cursor: pointer;
+}
+
+.replay-button {
+    background: #ff69b4;
+    color: white;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.controls {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: #a00060;
+    font-weight: bold;
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    .description,
+    .video-description {
+        font-size: 15px;
+    }
+
+    .small-text,
+    .video-small-text {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .controls {
+        left: 0;
+        right: 0;
+        justify-content: center;
+        bottom: 15px;
+    }
+
+    .controls button {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+
+<section id="firstPage" class="page welcome-page">
+
+    <div class="hearts">
+        <span>💗</span>
+        <span>💕</span>
+        <span>💖</span>
+        <span>❤️</span>
+        <span>💗</span>
+        <span>✨</span>
+        <span>💕</span>
+    </div>
+
+    <div class="welcome-content">
+
+        <p class="small-text">
+            A LITTLE SURPRISE FOR YOU
+        </p>
+
+        <h1>Welcome to My World ❤️</h1>
+
+        <p class="description">
+            Some moments are special,
+            some memories are beautiful,
+            and some people make life wonderful.
+        </p>
+
+        <div class="decoration">
+            🌸 ✨ 🌸
+        </div>
+
+        <button id="nextButton" class="next-button">
+            NEXT ➜
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SECOND PAGE -->
+
+<section id="secondPage" class="page video-page hidden">
+
+    <!-- BACKGROUND VIDEO -->
+
+    <video id="backgroundVideo"
+           class="background-video"
+           loop
+           playsinline>
+
+        <source src="C:\Users\Somay\OneDrive\Desktop\amma\WhatsApp Video 2026-11-08 at 12.04.59 AM (1).mp4" type="video/mp4">
+
+    </video>
+
+    <div class="overlay"></div>
+
+    <!-- BACKGROUND MUSIC -->
+
+    <audio id="backgroundMusic" loop>
+        <source src="C:\Users\Somay\OneDrive\Desktop\amma\WhatsApp Ptt 2026-11-07 at 10.06.52 PM.ogg" type="audio/mpeg">
+    </audio>
+
+    <!-- TEXT -->
+
+   
+
+       
+
+       
+
+        
+
+        <button id="replayButton" class="replay-button">
+            ↻ Replay Video
+        </button>
+
+    </div>
+
+    <!-- CONTROLS -->
+
+    <div class="controls">
+
+        <button id="musicButton">
+            🔊 Music On
+        </button>
+
+        <button id="videoButton">
+            ⏸ Pause Video
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// GET ELEMENTS
+
+const firstPage = document.getElementById("firstPage");
+const secondPage = document.getElementById("secondPage");
+
+const nextButton = document.getElementById("nextButton");
+
+const video = document.getElementById("backgroundVideo");
+const music = document.getElementById("backgroundMusic");
+
+const musicButton = document.getElementById("musicButton");
+const videoButton = document.getElementById("videoButton");
+const replayButton = document.getElementById("replayButton");
+
+
+// NEXT BUTTON
+
+nextButton.addEventListener("click", async function() {
+
+    firstPage.classList.add("hidden");
+    secondPage.classList.remove("hidden");
+
+    // PLAY VIDEO WITH SOUND
+
+    video.muted = false;
+    video.volume = 1;
+
+    try {
+        await video.play();
+    } catch (error) {
+        console.log("Video error:", error);
+    }
+
+    // PLAY MUSIC
+
+    music.volume = 0.5;
+
+    try {
+        await music.play();
+        musicButton.textContent = "🔊 Music On";
+    } catch (error) {
+        console.log("Music error:", error);
+        musicButton.textContent = "🔇 Music Off";
+    }
+
+});
+
+
+// MUSIC ON / OFF
+
+musicButton.addEventListener("click", async function() {
+
+    if (music.paused) {
+
+        try {
+            await music.play();
+            musicButton.textContent = "🔊 Music On";
+        } catch (error) {
+            console.log("Music error:", error);
+        }
+
+    } else {
+
+        music.pause();
+        musicButton.textContent = "🔇 Music Off";
+
+    }
+
+});
+
+
+// VIDEO PLAY / PAUSE
+
+videoButton.addEventListener("click", function() {
+
+    if (video.paused) {
+
+        video.play();
+        videoButton.textContent = "⏸ Pause Video";
+
+    } else {
+
+        video.pause();
+        videoButton.textContent = "▶ Play Video";
+
+    }
+
+});
+
+
+// REPLAY VIDEO
+
+replayButton.addEventListener("click", function() {
+
+    video.currentTime = 0;
+    video.play();
+
+});
+
+</script>
+
+</body>
+</html>
